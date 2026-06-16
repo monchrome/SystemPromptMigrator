@@ -1,0 +1,39 @@
+[project]
+name = "promptmigrator"
+version = "0.1.0"
+description = "FastAPI microservice that migrates prompts between LLMs using the target model itself (MIPROv2/PromptBridge-style propose-evaluate-refine)."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=0.49",
+    "fastapi>=0.115",
+    "openai>=1.60",
+    "python-multipart>=0.0.18",
+    "uvicorn[standard]>=0.34",
+]
+
+[project.scripts]
+promptmigrator = "main:main"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.27",
+    "pytest>=8.3",
+    "pytest-asyncio>=0.25",
+]
+ui = [
+    "requests>=2.32",
+    "streamlit>=1.40",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[build-system]
+requires = ["uv_build>=0.6"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "promptmigrator"
+module-root = ""
