@@ -1,8 +1,7 @@
 # Contributing to PromptMigrator
 
 Thanks for your interest in improving PromptMigrator! This document explains how to
-report issues, propose changes, and submit pull requests. By participating you agree to
-abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
+report issues, propose changes, and submit pull requests.
 
 ## Ways to contribute
 
@@ -52,8 +51,8 @@ Real migrations require `ANTHROPIC_API_KEY` (Claude targets) and/or `OPENAI_API_
    ```bash
    uv run pytest
    ```
-5. **Write a clear commit message** and PR description explaining *what* changed and
-   *why*. Link any related issue (e.g. "Closes #123").
+5. **Write a clear commit message** and PR description explaining _what_ changed and
+   _why_. Link any related issue (e.g. "Closes #123").
 6. **Open the PR** against `main`. A maintainer will review it; please be responsive to
    feedback.
 
