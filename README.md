@@ -1,10 +1,20 @@
-# PromptMigrator
+# System Prompt Migrator
 
-A Python microservice (FastAPI) that migrates a prompt written for one LLM into an
-equivalent prompt optimized for a different LLM. Syntax, formatting idioms, verbosity,
-system-instruction placement, JSON-format enforcement, and chain-of-thought style all
-vary drastically between model families — so the rewrite is performed **by the target
-model itself**, calibrated with techniques borrowed from prompt-optimization research:
+> Migrate a prompt tuned for one LLM into one optimized for another — rewritten by the *target model itself*.
+
+![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)
+![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-microservice-009688.svg)
+![Tests](https://img.shields.io/badge/tests-offline%2C%20no%20API%20keys-success.svg)
+
+A prompt carefully tuned for Claude often underperforms on GPT, and the reverse is just as true.
+System-instruction placement, JSON-format enforcement, chain-of-thought style, and verbosity idioms all differ sharply between model families.
+**System Prompt Migrator** rewrites the prompt *using the target model itself*, calibrated with techniques borrowed from prompt-optimization research.
+
+![Example migration: source prompt, migrated prompt, and per-candidate rubric scores](sampleoutput/Sample_Prompt_Migration_Output_With_Rubrics.png)
+
+It is a Python microservice (FastAPI) that migrates a prompt written for one LLM into an equivalent prompt optimized for a different LLM.
+Because syntax, formatting idioms, verbosity, system-instruction placement, JSON-format enforcement, and chain-of-thought style all vary drastically between model families, the rewrite is performed **by the target model itself**, calibrated with two techniques borrowed from prompt-optimization research:
 
 - **MIPROv2-style grounded proposal & selection** — the service generates *N*
   diversified candidate rewrites (each with a different meta-level "tip": precise /
